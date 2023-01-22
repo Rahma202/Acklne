@@ -1,0 +1,16 @@
+
+       <div class="card" style="width: 100%">
+            <img src="../../assets/imgs/{{product.img}}" class="card-img-top" alt="ooooooooo">
+            <div class="card-body text-center" text-center>
+              <h5 class="card-title">{{product.name}}</h5>
+              <h3 class="card-title">{{product.price}}</h3>
+              <a  class="btn btn-primary" *ngIf="!addButton" (click)="addButton = true" >AddToSala</a>
+              <div id="new" class="d-flex w-50 " *ngIf="addButton">
+
+                <input type="number" class="form-control w-50 " [(ngModel)]="amount">
+                <button (click)="add();addButton = false" class="btn btn-danger me-4 w-50">Add</button>
+              </div>
+
+            </div>
+          </div>
+    

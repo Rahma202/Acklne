@@ -1,0 +1,24 @@
+<div class="container">
+     <div class="row mt-5 p-5 " *ngIf=" cartfoodlist else loading" >
+         <div class="col-12">
+            <div class="row">
+                <div class="card m-4" style="width: 100%; " *ngFor="let u of cartfoodlist">
+                    <div class="card-header">
+                        Email Client{{u.owner}}
+                    </div>
+                    <ul class="list-group list-group-flush" >
+                      <li class="list-group-item text-center" *ngFor="let x of u.items ">{{x.name}}</li>
+                  
+                    </ul>
+                    <div class="card-header" style="width: 100%;" >
+                        bill  Client::{{u.bill}}
+                    </div>
+                  </div>
+            </div>
+
+         </div>
+     </div>
+     <ng-template #loading>
+        <app-load></app-load>
+    </ng-template>
+</div>

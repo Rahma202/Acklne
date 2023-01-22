@@ -1,0 +1,84 @@
+<div class="container  w-100" style="height:60% ;margin: 100px"  *ngIf="user&&data.role==role ||items&&  balaconaItems else elseBlock">
+  <div class="cartBox m-5 "*ngIf="items" >
+    <h1 class="text-danger fst-italic">Alibaba Shoping Cart</h1>
+    <div class="headCart">
+      <p class="lead">
+        You have <label class="text-danger"> {{ items.items.length }} </label> item
+        in your Cart
+      </p>
+      <span class="text-danger card-header" (click)="clearAll()"
+        >Clear Shoping Cart</span
+      >
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Price</th>
+          <th style="width: 25%">Quantity</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+         <tr *ngFor="let item of items.items; let index = index">
+          <td class="m"><img src="../../assets/imgs/{{item.img}}" alt="ooo"></td>
+          <td class="m">{{ item.name }}</td>
+          <td class="m">{{ item.price }}</td>
+          <td class="m">
+            <div class="quantity">
+              <button class="btn btn-dark" (click)="add(index)">+</button>
+              <input
+                class="form-control"
+                type="number"
+                (change)="detectChange()"
+                [(ngModel)]="item.quantity"
+                min="1"
+              />
+              <button class="btn btn-dark" (click)="mins(index)">-</button>
+            </div>
+          </td>
+          <td class="m">{{ item.price * item.quantity }}</td>
+          <td class="m">
+            <button class="btn btn-danger" (click)="deleteProduct(item.itemId)">
+              <!-- <button class="btn btn-danger" (click)="deleteProduct(index)"></button> -->
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>Total :{{ total }} LE</th>
+          <th>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+    <button (click)="clickButt()" class="btn btn-primary mb-3">orderNow</button>
+    <ngx-paypal #payPalElem1 [config]="payPalConfig"  *ngIf=" changeButton"></ngx-paypal>
+
+  </div>
+
+
+
+
+
+
+
+
+  <!-- <div class="alert alert-success" role="alert" > <strong>well done!</strong>Your order is successfully send </div> -->
+
+
+
+</div>
+<div class="container">
+  <ng-template #elseBlock><app-noshopping></app-noshopping></ng-template>
+
+</div>

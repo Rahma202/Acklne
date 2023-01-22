@@ -1,0 +1,36 @@
+
+@import '../../styles.scss';
+
+nav{
+  position:absolute;
+  z-index: 99;
+  background:$firstColor;
+  width:100%;
+  
+  // background-color: $bgColor;
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 2rem;
+    span{
+      color: #fff
+    }
+    // .navbar-nav{
+    //   margin-inline-start: 20%;
+    // }
+  }
+  ul{
+    li{
+      a{
+        color: #fff;
+        font-weight: 700;
+        transition: all 0.5s ease-in-out;
+      }
+    
+    }
+
+  }
+}
+.nav-item :hover{
+  background-color: rgb(235, 178, 104);
+border-radius: 8px;
+}

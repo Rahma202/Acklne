@@ -1,0 +1,15 @@
+<div class="container p-5 m-5">
+  
+    <form [formGroup]="newReg" class="form-group">
+        <input type="text" class="form-control w-5" placeholder="Enter id Product" formControlName="id" [ngModel]="id">
+        <input type="text" class="form-control w-5" placeholder="Enter Name Product" formControlName="name" [ngModel]="name">
+        <input type="text"  class="form-control" placeholder="Enter price Product" formControlName="price" [ngModel]="price">
+        <input type="text" class="form-control" placeholder="Enter imgSource Product" formControlName="srcImg" [ngModel]="srcImg">
+        <input type="text" class="form-control" placeholder="Enter Detials Product" formControlName="detials" [ngModel]="detials">
+        <button class="btn btn-primary m-5" (click)="addProduct()">add</button>
+        <button class="btn btn-primary  m-5" (click)="goBack()" >Back</button>
+
+    </form>
+
+</div>
+

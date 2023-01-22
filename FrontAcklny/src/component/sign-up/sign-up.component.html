@@ -1,0 +1,100 @@
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start pt-5">
+
+  <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right mt-5" style="
+            background:  hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+          <div class="card-body p-5 shadow-5 text-center">
+            <h2 class="fw-bold mb-3">Sign up now</h2>
+
+            <div class=" row justify-content-center align-content-center py-2 my-auto">
+              <div class="col-lg-6  ">
+                <div *ngIf="error.length > 0 " class="alert ">
+                  <p>{{error}}</p>
+                </div>
+              </div>
+            </div>
+
+            <form [formGroup]="registerForm" >
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row">
+                
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+
+                    <input formControlName="name" type="text" id="form3Example2" class="form-control" placeholder="YourName" />
+                    <!-- <label class="form-label" for="form3Example2">Last name</label> -->
+                    <div class="alert my-2" *ngIf="registerForm.get('name')?.errors != null && registerForm.get('name')?.touched">
+                      <p *ngIf="registerForm.get('name')?.errors?.['required']" >last name is Required</p>
+                      <p *ngIf="registerForm.get('name')?.errors?.['minLength']" >last name is Min Lengh 3 letters</p>
+                      <p *ngIf="registerForm.get('name')?.errors?.['maxLength']" >last name is Max Lengh 10 letters</p>
+                      <p *ngIf="registerForm.get('last_name')?.errors?.['pattern']"> Please, Enter a valid name and start with uppercase</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input formControlName="email" type="email" id="form3Example3" class="form-control" placeholder="Email address" />
+                <p class="alert alert-warning" role="alert" *ngIf="errorRegit">{{errorRegit}}</p>
+                <div class="alert my-2" *ngIf="registerForm.get('email')?.errors != null && registerForm.get('email')?.touched">
+                  <p *ngIf="registerForm.get('email')?.errors?.['required']" >email is Required</p>
+                  <p *ngIf="registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.errors?.['pattern']" >Please enter a Valid Email!</p>
+                </div>
+              </div>
+
+              <!-- phone input -->
+              <div class="form-outline mb-4">
+                <input formControlName="phone" type="text" id="form3Example3" class="form-control" placeholder="Phone Number" />
+                <!-- <label class="form-label" for="form3Example3">Phone Number</label> -->
+                <div class="alert my-2" *ngIf="registerForm.get('phone')?.errors != null && registerForm.get('phone')?.touched">
+                  <p *ngIf="registerForm.get('phone')?.errors?.['required']" >Phone number is Required</p>
+                  <p *ngIf=" registerForm.get('phone')?.errors?.['pattern']" >Please enter a Valid Phone number!</p>
+                </div>
+              </div>
+
+              <!-- Addresse input -->
+              <div class="form-outline mb-4">
+                <input formControlName="address" type="text" id="form3Example3" class="form-control" placeholder="Your address" />
+                <!-- <label class="form-label" for="form3Example3">Your address</label> -->
+                <div class="alert my-2" *ngIf="registerForm.get('address')?.errors != null && registerForm.get('address')?.touched">
+                  <p *ngIf="registerForm.get('address')?.errors?.['required']" >address is Required</p>
+                  <p *ngIf=" registerForm.get('address')?.errors?.['pattern']" >Please enter a Valid Address!</p>
+                </div>
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input formControlName="password" type="password" id="form3Example4" class="form-control" placeholder="Password" />
+                <!-- <label class="form-label" for="form3Example4">Password</label> -->
+                <div class="alert my-2" *ngIf="registerForm.get('password')?.errors != null && registerForm.get('password')?.touched">
+                  <p *ngIf="registerForm.get('password')?.errors?.['required']" >Password is Required</p>
+                  <p *ngIf="registerForm.get('password')?.errors?.['pattern']" >Password length must be greater than or equal to 8 and password must contain one or more uppercase , lowercase , numeric and special characters</p>
+                </div>
+              </div>
+
+              <!-- Submit button -->
+              <button [disabled]="registerForm.invalid" type="submit" (click)="newUser()" class="btn btn-block mb-4">
+                Sign up
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <img src="../../assets/imgs/restaurant-delivery-orders.jpg" class="w-100 rounded-4 shadow-4"
+          alt="" />
+      </div>
+    </div>
+  </div>
+  <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->

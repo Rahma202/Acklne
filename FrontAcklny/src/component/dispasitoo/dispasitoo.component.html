@@ -1,0 +1,55 @@
+<div style="width:100%; height:300px;">
+  <img style="width: 100%; height: 100%;" src="../../assets/imgs/des0.jpg" alt="">
+
+</div>
+   <div class="container mt-5">
+      <div class="row " *ngIf="data else loading">
+        <div class="col-lg-4 col-md-6 col-sm-12 mt-4" *ngFor="let u of data" >
+          <app-alitem [product]="u" (item)="addTOCart($event)"></app-alitem>
+
+        </div>
+    
+      </div>   
+      
+
+
+  <ng-template #loading>
+    <app-load></app-load>
+  </ng-template>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container mt-5">
+    <div class="row " *ngIf="data else loading">
+      <div class="col-md-4 col-sm-12 mt-4" *ngFor="let u of  data">
+          <div class="card" style="width: 18rem;">
+              <img src="../../assets/imgs/{{u.img}}" class="card-img-top" alt="...">
+              <div class="card-body text-center" text-center>
+                <h5 class="card-title">{{u.name}}</h5>
+                <h3 class="card-title">{{u.price}}</h3>
+                <a  class="btn btn-primary">AddToSala</a>
+              </div>
+            </div>
+      </div>
+
+    </div>
+
+  <ng-template #loading>
+      <app-load></app-load>
+     </ng-template>
+  </div>
+   -->

@@ -1,0 +1,19 @@
+<div style="width:100%; height:300px;">
+  <img style="width: 100%; height: 100%;" src="../../assets/imgs/bl0.jpg" alt="">
+
+</div>
+    <div class="container mt-5">
+      <div class="row " *ngIf="balacona else loading">
+        <div class="col-lg-4 col-md-6 col-sm-12 mt-4" *ngFor="let u of balacona" >
+          <app-alitem [product]="u" (item)="addTOCart($event)"></app-alitem>
+
+        </div>
+    
+      </div>   
+      
+
+
+  <ng-template #loading>
+    <app-load></app-load>
+   </ng-template>
+</div>

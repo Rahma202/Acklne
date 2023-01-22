@@ -1,0 +1,71 @@
+
+<section class="background-radial-gradient overflow-hidden">
+  <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-center mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+            the Best Food <br />
+          <span style="color: #f8b045">for your Best time</span>
+        </h1>
+        <p class="mb-4 opacity-70" style="color: hsl(39, 89%, 65%)">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Temporibus, expedita iusto veniam atque, magni tempora mollitia
+          dolorum consequatur nulla, neque debitis eos reprehenderit quasi
+          ab ipsum nisi dolorem modi. Quos?
+        </p>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+        <div class="card bg-glass">
+          <div class="card-body px-4 py-5 px-md-5">
+
+            <div class=" row justify-content-center align-content-center py-5 my-auto ">
+              <div class="col-lg-6">
+                <div *ngIf="error.length > 0 " class="alert">
+                  <p>{{error}}</p>
+                </div>
+              </div>
+            </div>
+
+            <form [formGroup]="signInForm" >
+
+              <div class="form-outline mb-4">
+                <input formControlName="email" type="email" id="form3Example3" class="form-control p-2" />
+                <label class="form-label" for="form3Example3">Email address</label>
+                <div class="alert  my-2" *ngIf="signInForm.get('email')?.errors != null && signInForm.get('email')?.touched">
+                  <p *ngIf="signInForm.get('email')?.errors?.['required']" >email is Required</p>
+                  <p *ngIf="signInForm.get('email')?.errors?.['email'] && signInForm.get('email')?.errors?.['pattern']" >Please Enter a Valid Email!</p>
+                </div>
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input formControlName="password"  type="password" id="form3Example4" class="form-control p-2" />
+                <label class="form-label" for="form3Example4">Password</label>
+                <div class="alert  my-2" *ngIf="signInForm.get('password')?.errors != null && signInForm.get('password')?.touched">
+                  <p *ngIf="signInForm.get('password')?.errors?.['required']" >Password is Required</p>
+                  <p *ngIf="signInForm.get('password')?.errors?.['pattern']" >Password length must be greater than or equal to 8 and password must contain one or more uppercase , lowercase , numeric and special characters.</p>
+                </div>
+              </div>
+
+              <div>
+                <p class="mb-3">Don't have an account? <a routerLink="signUp" class=" fw-bold" style="color: #f8b045">Sign Up</a>
+                </p>
+              </div>
+
+              <!-- Submit button -->
+              <button [disabled]="signInForm.invalid"(click)="user()" type="submit" class="btn  btn-block mb-4">
+                Sign in
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->

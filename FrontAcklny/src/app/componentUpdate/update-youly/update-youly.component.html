@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    
+    <button class="btn btn-outline-success m-1 mt-5" routerLink="addYouly">AddNewProduct</button>
+    <button class="btn btn-outline-secondary m-1 mt-5">ViewOrder</button>
+    <div class="row " *ngIf="ali else loading"  id="item">
+        <div class="col-lg-4 col-md-6 col-sm-12 mt-4" *ngFor="let u of ali" >            
+        <div class="card" style="width: 18rem;">
+            <img src="../../assets/imgs/{{u.img}}" class="card-img-top" alt="ooooooooo">
+            <div class="card-body text-center" text-center>
+               <form [formGroup]="newReg">
+                <input formControlName="name" placeholder={{u.name}} class="form-control text-center" [ngModel]="nameItem"/>
+               <input formControlName="price"  placeholder={{u.price}} class="form-control text-center"/>
+               </form>
+               <button class="btn btn-outline-success mt-4 m-1" (click)="updateItem(u.id)">save            </button>
+               <button type="button" class="btn btn-outline-danger mt-4 m-1" (click)="deletItem(u.id)">delet</button>
+
+              </div>
+
+            </div>
+          </div>
+
+           </div>        
+        <ng-template #loading>
+            <app-load></app-load>
+        </ng-template>
+        </div>
