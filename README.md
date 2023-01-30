@@ -13,13 +13,18 @@ This project is under development.
     
     Note: nodemon must be globally installed
 ```
-
-##Initializing the frontEnd server
-
+## Initializing the frontEnd server
 ```
   cd name_project
     
     ng serve
+ ```
+ 
+ ## login uses admin alibaba
+```
+  user:m@g.com
+
+  password:rrrsrm
  ```
     
     
