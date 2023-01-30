@@ -19,6 +19,12 @@ This project is under development.
     
     ng serve
  ```
+ 
+ #### use user and password to login admin alibaba
+ ```
+ user:m@g.com
+ password: rrrsrr  
+ ```
     
     
 ### HomePage
